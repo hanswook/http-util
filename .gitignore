@@ -8,7 +8,7 @@
 
 # IntelliJ IDEA(IDE相关的设置)
 .idea
-/.idea/*
+/.idea/
 /.idea/caches
 *.iml
 *.ipr
