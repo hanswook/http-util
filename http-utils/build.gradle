@@ -2,12 +2,10 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "0.0.3"//定义版本标识
+version = "0.0.4"//定义版本标识
 
 android {
     compileSdkVersion 28
-
-
 
     defaultConfig {
         minSdkVersion 17
@@ -44,6 +42,9 @@ dependencies {
     api 'com.squareup.okhttp3:logging-interceptor:3.9.0'
     api 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     api 'com.squareup.retrofit2:converter-scalars:2.3.0'
+
+    implementation 'com.hanwook:common-utils:0.0.5'
+
 }
 
 

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 
 
+import com.common.utils.common_utils.LogUtils;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,7 +17,7 @@ public class HttpUrlManager {
             RETROFITS_URL_MAP.put(HttpManager.Retrofits.base, MetaDataUtils.getString(context, "BASE_URL"));
 
         } catch (PackageManager.NameNotFoundException e) {
-            LogUtil.d(e);
+            LogUtils.d(e);
         }
 
     }

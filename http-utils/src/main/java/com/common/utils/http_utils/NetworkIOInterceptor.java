@@ -1,7 +1,10 @@
 package com.common.utils.http_utils;
 
 import android.content.Context;
+import android.util.Config;
 
+
+import com.common.utils.common_utils.LogUtils;
 
 import java.io.IOException;
 
@@ -27,8 +30,8 @@ public class NetworkIOInterceptor implements Interceptor {
             }
             // TODO
         } catch (IOException e) { // 对业务层屏蔽掉一些网络错误
-            if (LogUtil.DEBUG)
-                LogUtil.d(e);
+            if (BuildConfig.DEBUG)
+                LogUtils.d(e);
             throw new IOException(e.getMessage());
         }
         return response;

@@ -3,6 +3,9 @@ package com.common.utils.http_utils;
 import android.util.Log;
 
 
+import com.common.utils.common_utils.EmptyUtils;
+import com.common.utils.common_utils.LogUtils;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,14 +47,14 @@ public class LoggingInterceptor implements Interceptor {
             }
         }
         long t1 = System.nanoTime();
-        LogUtil.d(String.format(Locale.CHINA, "Sending request %s on %s%n%s%n%s",
+        LogUtils.d(String.format(Locale.CHINA, "Sending request %s on %s%n%s%n%s",
                 url, chain.connection(), headers, requestPayload));
 
         Response response;
         try {
             response = chain.proceed(request);
         } catch (Exception e) {
-            LogUtil.d(String.format(Locale.CHINA, "HTTP FAILED:%n url:%s%n headers:%s%n error:%s%n%s",
+            LogUtils.d(String.format(Locale.CHINA, "HTTP FAILED:%n url:%s%n headers:%s%n error:%s%n%s",
                     url, headers, e.getMessage(), getStackTraceString(e)));
             throw e;
         }
@@ -67,7 +70,7 @@ public class LoggingInterceptor implements Interceptor {
             bodyStr = buffer.clone().readString(charset);
             bodyStr = jsonPretty(bodyStr);
         }
-        LogUtil.d(String.format(Locale.CHINA, "Received response for %s in %.1fms%n%s%n%s",
+        LogUtils.d(String.format(Locale.CHINA, "Received response for %s in %.1fms%n%s%n%s",
                 response.request().url(), (t2 - t1) / 1e6d, response.headers(), bodyStr));
         return response;
     }
